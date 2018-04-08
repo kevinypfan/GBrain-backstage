@@ -1,13 +1,10 @@
 <template lang="html">
   <div class="container">
     <div class="jumbotron">
-      <h1 class="display-4">Hello, world!</h1>
-      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <h1 class="display-4">Hello, 管理員！</h1>
+      <p class="lead">您可以點選右上角，切換至您要的資料</p>
       <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-      </p>
+      <p>按下More 可以看更多訊息，如需要修改按下修改資料，必須按下完成編輯才是編輯完成！</p>
     </div>
   </div>
 </template>

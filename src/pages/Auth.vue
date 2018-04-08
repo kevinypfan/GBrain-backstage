@@ -18,7 +18,7 @@
         </default-button>
       </form>
     </div>
-    <!-- <div class="background"></div> -->
+    <div class="background"></div>
   </div>
 </template>
 
@@ -170,7 +170,8 @@ export default {
         width: 90%;
     }
 }
-/* .background {
+
+.background {
   position: absolute;
   top: 0;
   left: 0;
@@ -179,5 +180,6 @@ export default {
   width: 100vw;
   z-index: -999;
   filter: blur(3px);
-} */
+}
+
 </style>
