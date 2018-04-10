@@ -18,7 +18,7 @@
         </default-button>
       </form>
     </div>
-    <div class="background"></div>
+    <!-- <div class="background"></div> -->
   </div>
 </template>
 
