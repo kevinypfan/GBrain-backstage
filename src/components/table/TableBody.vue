@@ -31,9 +31,19 @@ export default {
   },
   computed: {
     tableBodyAry () {
+      const processCheck = ['register', 'plan', 'cover', 'video', 'warrant'];
       if (this.datas && this.tableHeadAry) {
         let tableData = this.datas.map( user => {
           let item = [];
+
+          let count = 0;
+          processCheck.forEach( p => {
+            if (user[p]) {
+              count ++
+            }
+          })
+          user.process = count / 5 * 100 + '%';
+
           this.tableHeadAry.forEach(head => {
             if (head === 'leader' || head === 'teacher') {
               item.push(`${user[head].name}(${user[head].email})`)
@@ -47,6 +57,7 @@ export default {
               }
             }
           })
+
           return item;
         })
         return tableData;

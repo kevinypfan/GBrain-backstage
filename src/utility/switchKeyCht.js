@@ -33,6 +33,9 @@ const switchKey = (key) => {
     case 'teacher':
       return '老師'
       break;
+    case 'process':
+      return '上傳進度'
+      break;
     default:
       return key;
   }

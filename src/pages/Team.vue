@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     tableHeadAry () {
-      return ['title', 'leader', 'teacher'];
+      return ['title', 'leader', 'teacher', 'process'];
     }
   }
 }

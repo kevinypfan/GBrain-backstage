@@ -28,6 +28,44 @@
             </ul>
           </td>
         </tr>
+        <tr>
+          <th scope="row">報名表</th>
+          <td>
+            <h4><span class="badge" :class="team.register ? 'badge-success' : 'badge-danger'">{{team.register ? "已上傳" : "未上傳"}}</span></h4>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">計畫書</th>
+          <td>
+            <h4>
+              <span class="badge" :class="team.plan ? 'badge-success' : 'badge-danger'">{{team.plan ? "已上傳" : "未上傳"}}</span>
+            </h4>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">封面</th>
+          <td>
+            <h4>
+              <span class="badge" :class="team.cover ? 'badge-success' : 'badge-danger'">{{team.cover ? "已上傳" : "未上傳"}}</span>
+            </h4>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">成果影片</th>
+          <td>
+            <h4>
+              <span class="badge" :class="team.video ? 'badge-success' : 'badge-danger'">{{team.video ? "已上傳" : "未上傳"}}</span>
+            </h4>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">著作授權書</th>
+          <td>
+            <h4>
+              <span class="badge" :class="team.warrant ? 'badge-success' : 'badge-danger'">{{team.warrant ? "已上傳" : "未上傳"}}</span>
+            </h4>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
