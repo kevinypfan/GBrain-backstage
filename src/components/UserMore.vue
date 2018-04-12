@@ -8,7 +8,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="key in visible">
+        <tr v-for="key in visible" :key="key">
           <th scope="row">{{switchKey(key)}}</th>
           <td>{{user[key]}}</td>
         </tr>

@@ -24,7 +24,7 @@
           <th scope="row">隊員</th>
           <td>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item" v-for="r in team.registers">{{r.name}}  ({{r.email}})</li>
+              <li class="list-group-item" v-for="(r, i) in team.registers" :key="i">{{r.name}}  ({{r.email}})</li>
             </ul>
           </td>
         </tr>

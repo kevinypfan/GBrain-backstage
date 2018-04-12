@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="modal-container">
     <div class="title">
-      <h4>編輯：</h4>
+      <h4>{{modalType ? modalType : "編輯："}}</h4>
     </div>
     <div class="section">
       <slot></slot>
     </div>
     <div class="bottom">
-      <button type="button" class="btn btn-primary btn-mr" @click="$emit('modalSuccess')" >確定</button>
+      <button type="button" class="btn btn-primary btn-mr" @click="$emit('modalSuccess')" v-if="!modalType">確定</button>
       <button type="button" class="btn btn-danger btn-mr" @click="$emit('modalClose')">取消</button>
     </div>
   </div>
@@ -15,6 +15,9 @@
 
 <script>
 export default {
+  props: {
+    modalType: String
+  }
 }
 </script>
 

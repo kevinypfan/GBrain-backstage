@@ -1,8 +1,8 @@
 <template lang="html">
   <tbody v-if="tableBodyAry">
-    <tr v-for="(table, index) in tableBodyAry">
+    <tr v-for="(table, index) in tableBodyAry" :key="index">
       <th scope="row">{{index + 1}}</th>
-      <td v-for="t in table">{{t}}</td>
+      <td v-for="(t, i) in table" :key="i">{{t}}</td>
       <td>
         <DefaultButton
           btnType="primary"

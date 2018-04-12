@@ -8,7 +8,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="key in visible">
+        <tr v-for="key in visible" :key="key">
           <th scope="row">{{switchKey(key)}}</th>
           <td>
             <input class="form-control" type="text" :value="user[key]" @input="updateValue($event, key)" :placeholder="switchKey(key)">

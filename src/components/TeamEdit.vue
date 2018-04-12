@@ -39,7 +39,7 @@
           </th>
           <td>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item table-td" v-for="(r, index) in team.registers">
+              <li class="list-group-item table-td" v-for="(r, index) in team.registers" :key="index">
                 {{r.name}}  ({{r.email}})
                 <div class="table-btn">
                   <button type="button" class="btn btn-danger btn-mr" @click="$emit('registerDelete', index)">刪除</button>

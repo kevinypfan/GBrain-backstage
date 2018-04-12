@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col" v-for="headItem in tableHeadAry">{{switchKey(headItem)}}</th>
+      <th scope="col" v-for="headItem in tableHeadAry" :key="headItem">{{switchKey(headItem)}}</th>
     </tr>
   </thead>
 </template>
