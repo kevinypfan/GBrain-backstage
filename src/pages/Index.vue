@@ -20,7 +20,8 @@
       >
       <div class="modal-section">
         <img src="@/assets/loading.gif" v-if="xlsxPath === null &&  zipPath === null">
-        <a :href="apiHost + zipPath" class="btn btn-primary" v-if="xlsxPath || zipPath">{{xlsxPath ? "Excel" : "Zip"}} 檔案下載</a>
+        <a :href="apiHost + zipPath" class="btn btn-primary" v-if="zipPath">Zip 檔案下載</a>
+        <a :href="apiHost + xlsxPath" class="btn btn-primary" v-if="xlsxPath">Excel 檔案下載</a>
       </div>
 
       </Modal>
@@ -41,7 +42,7 @@ export default {
       loading: false,
       xlsxPath: null,
       zipPath: null,
-      apiHost: 'http://120.105.129.58/'
+      apiHost: 'http://120.105.129.58'
     }
   },
   components: {
