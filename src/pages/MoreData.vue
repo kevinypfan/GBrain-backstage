@@ -6,7 +6,18 @@
       <button type="button" class="btn btn-danger btn-mr" @click="deleteDataBtn">刪除此筆</button>
     </div>
     <UserMore :visible="visibleDatas" :user="data" v-if="pageMode === 'user'" :switchKey="switchKeyCht" />
-    <TeamMore :team="data" v-if="pageMode === 'team'" :switchKey="switchKeyCht" />
+    <TeamMore :team="data" v-if="pageMode === 'team'" :switchKey="switchKeyCht" @uploadPlanLess="modalOpen = true" />
+    <BackDrop v-if="modalOpen"/>
+    <transition name="fade" mode="out-in">
+      <Modal v-if="modalOpen"
+        @modalClose="modalCloseHandler"
+        @modalSuccess="modalSuccessHandler"
+      >
+        <div>
+          <input type="file" @change="fileChangeHandler">
+        </div>
+      </Modal>
+  </transition>
   </div>
 </template>
 
@@ -17,15 +28,22 @@ import switchKeyCht from '../utility/switchKeyCht'
 import UserMore from '../components/UserMore.vue'
 import TeamMore from '../components/TeamMore.vue'
 
+import BackDrop from '../components/modal/BackDrop.vue'
+import Modal from '../components/modal/Modal.vue'
+
 export default {
   components: {
     UserMore,
-    TeamMore
+    TeamMore,
+    BackDrop,
+    Modal
   },
   data () {
     return {
       pageMode: "",
-      data: null
+      data: null,
+      modalOpen: false,
+      file: null
     }
   },
   created () {
@@ -96,6 +114,37 @@ export default {
           console.log('取消')
         }
       })
+    },
+    modalCloseHandler() {
+      this.modalOpen = false;
+      this.file = null;
+    },
+    fileChangeHandler(evt) {
+       this.file = evt.target.files[0];
+    },
+    modalSuccessHandler() {
+      const authToken = window.localStorage.getItem('token');
+      var formData = new FormData();
+      formData.append('teamData', JSON.stringify(this.data))
+      formData.append('planLess', this.file)
+      axios.post('/api/admin/uploadPlanLess', formData, {headers: { authToken }})
+        .then(() => {
+          this.$swal(
+            '上傳成功！',
+            '檔案上傳或覆蓋成功',
+            'success'
+          ).then(() => {
+            window.location.reload();
+          })
+        })
+        .catch(err => {
+          console.log(err.response.data.error.message)
+          this.$swal(
+            '上傳失敗！',
+            err.response.data.error.message,
+            'error'
+          )
+        })
     }
   }
 }

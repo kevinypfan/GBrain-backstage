@@ -66,6 +66,21 @@
             </h4>
           </td>
         </tr>
+        <tr>
+          <th scope="row" class="table-td">
+            <div>
+              計畫書(評審)
+            </div>
+            <div class="table-btn">
+              <button type="button" class="btn btn-success btn-mr" @click="$emit('uploadPlanLess')">上傳變更</button>
+            </div>
+          </th>
+          <td>
+            <h4>
+              <span class="badge" :class="team.planLess ? 'badge-success' : 'badge-danger'">{{team.planLess ? "已上傳" : "未上傳"}}</span>
+            </h4>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -84,5 +99,12 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+.table-td {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-mr {
+  margin-right: 10px;
+}
 </style>
