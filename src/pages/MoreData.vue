@@ -128,13 +128,15 @@ export default {
       formData.append('teamData', JSON.stringify(this.data))
       formData.append('planLess', this.file)
       axios.post('/api/admin/uploadPlanLess', formData, {headers: { authToken }})
-        .then(() => {
+        .then((result) => {
           this.$swal(
             '上傳成功！',
             '檔案上傳或覆蓋成功',
             'success'
           ).then(() => {
-            window.location.reload();
+            this.$set(this.data, 'planLess',  result);
+            this.modalOpen = false;
+            this.file = null;
           })
         })
         .catch(err => {
